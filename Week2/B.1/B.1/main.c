@@ -3,7 +3,7 @@
 ** support, and with no warranty, express or implied, as to its usefulness for
 ** any purpose.
 **
-** ioisr.c
+** main.c
 **
 ** Beschrijving:	ISR on PORTD demonstrattion  
 ** Target:			AVR mcu
