@@ -5,7 +5,7 @@
 **
 ** lookup.c
 **
-** Beschrijving:	Ledpatroon op PORTD dmv table lookup (scheiding logica en data)    
+** Beschrijving:	Ledpatroon op PORTC dmv table lookup (scheiding logica en data)    
 ** Target:			AVR mcu
 ** Build:			avr-gcc -std=c99 -Wall -O3 -mmcu=atmega128 -D F_CPU=8000000UL -c switch.c
 **					avr-gcc -g -mmcu=atmega128 -o lookup.elf lookup.o
@@ -122,7 +122,7 @@ Version :    	Zwen van Erkelens & Thijs Wijnen, Initial code
 	
 	PORTC = pattern[index].data;
 	
-	while (1==1)
+	while (1)
 	{
 		if (vect1 == 1 && vect2 == 1)
 		{
