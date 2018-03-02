@@ -16,7 +16,7 @@
  int main(void)
  {
 	 init_Lcd_4_bit_mode();
-	 display_text("Are you a yedi?");
+	 display_text("I ain't no yedi!");
 	 set_cursor(15);
 	 while (1)
 	 {

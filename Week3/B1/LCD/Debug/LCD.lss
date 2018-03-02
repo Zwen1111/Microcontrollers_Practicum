@@ -3,29 +3,29 @@ LCD.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000010  00800100  00000162  000001d6  2**0
+  0 .data         00000012  00800100  00000164  000001d8  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000162  00000000  00000000  00000074  2**1
+  1 .text         00000164  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  000001e6  2**0
+  2 .comment      00000030  00000000  00000000  000001ea  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000218  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000021c  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000090  00000000  00000000  00000254  2**0
+  4 .debug_aranges 00000090  00000000  00000000  00000258  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000d05  00000000  00000000  000002e4  2**0
+  5 .debug_info   00000d0e  00000000  00000000  000002e8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000991  00000000  00000000  00000fe9  2**0
+  6 .debug_abbrev 00000991  00000000  00000000  00000ff6  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000470  00000000  00000000  0000197a  2**0
+  7 .debug_line   00000476  00000000  00000000  00001987  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000124  00000000  00000000  00001dec  2**2
+  8 .debug_frame  00000124  00000000  00000000  00001e00  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000506  00000000  00000000  00001f10  2**0
+  9 .debug_str    00000518  00000000  00000000  00001f24  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000030a  00000000  00000000  00002416  2**0
+ 10 .debug_loc    0000030a  00000000  00000000  0000243c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000070  00000000  00000000  00002720  2**0
+ 11 .debug_ranges 00000070  00000000  00000000  00002746  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -114,18 +114,18 @@ Disassembly of section .text:
   98:	11 e0       	ldi	r17, 0x01	; 1
   9a:	a0 e0       	ldi	r26, 0x00	; 0
   9c:	b1 e0       	ldi	r27, 0x01	; 1
-  9e:	e2 e6       	ldi	r30, 0x62	; 98
+  9e:	e4 e6       	ldi	r30, 0x64	; 100
   a0:	f1 e0       	ldi	r31, 0x01	; 1
   a2:	00 e0       	ldi	r16, 0x00	; 0
   a4:	0b bf       	out	0x3b, r16	; 59
   a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
   a8:	07 90       	elpm	r0, Z+
   aa:	0d 92       	st	X+, r0
-  ac:	a0 31       	cpi	r26, 0x10	; 16
+  ac:	a2 31       	cpi	r26, 0x12	; 18
   ae:	b1 07       	cpc	r27, r17
   b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
-  b2:	4d d0       	rcall	.+154    	; 0x14e <main>
-  b4:	54 c0       	rjmp	.+168    	; 0x15e <_exit>
+  b2:	4e d0       	rcall	.+156    	; 0x150 <main>
+  b4:	55 c0       	rjmp	.+170    	; 0x160 <_exit>
 
 000000b6 <__bad_interrupt>:
   b6:	a4 cf       	rjmp	.-184    	; 0x0 <__vectors>
@@ -220,61 +220,63 @@ Disassembly of section .text:
 
   void init_Lcd_4_bit_mode(void)
   {
-	  DDRC = 0b11111111;	//PORTC (7:0) output
+	  DDRC = 0b11111111;		//PORTC (7:0) output
  130:	8f ef       	ldi	r24, 0xFF	; 255
  132:	84 bb       	out	0x14, r24	; 20
-	  PORTC = 0x00;		//Maak alle pins van portc laag, ook e en rs
+	  PORTC = 0x00;			//Maak alle pins van portc laag, ook e en rs
  134:	15 ba       	out	0x15, r1	; 21
 
-	  //PORTC = 0x28;		//Function set (4-bit interface, 2 lines, 5*8 Pixels)
-	  PORTC = 0x20;		//Function set (4-bit interface, 1 lines, 5*8 Pixels)
- 136:	80 e2       	ldi	r24, 0x20	; 32
+	  PORTC = 0x28;		//Function set (4-bit interface, 2 lines, 5*8 Pixels)
+ 136:	88 e2       	ldi	r24, 0x28	; 40
  138:	85 bb       	out	0x15, r24	; 21
+	  //PORTC = 0x20;			//Function set (4-bit interface, 1 lines, 5*8 Pixels)
 	  toggle_Lcd_E();
  13a:	be df       	rcall	.-132    	; 0xb8 <toggle_Lcd_E>
 	  
-	  //lcd_command(0x0E);	//Zet display aan en cursor aan en maak cursor niet knipperent	(0x0E -> 0b00001110)
-	  lcd_command(0x0C);	//Zet display aan en cursor uit en maak cursor niet knipperent		(0x0F -> 0b00001100)
- 13c:	8c e0       	ldi	r24, 0x0C	; 12
- 13e:	db df       	rcall	.-74     	; 0xf6 <lcd_command>
-	  lcd_command(0x06);	//Entry mode 06, van links naar rechts schrijven. cursor schuift mee
- 140:	86 e0       	ldi	r24, 0x06	; 6
- 142:	d9 df       	rcall	.-78     	; 0xf6 <lcd_command>
 	  display_clear();
- 144:	f2 cf       	rjmp	.-28     	; 0x12a <display_clear>
- 146:	08 95       	ret
+ 13c:	f6 df       	rcall	.-20     	; 0x12a <display_clear>
+	  //lcd_command(0x0E);	//Zet display aan en cursor aan en maak cursor niet knipperent	(0x0E -> 0b00001110)
+	  lcd_command(0x0C);		//Zet display aan en cursor uit en maak cursor niet knipperent		(0x0F -> 0b00001100)
+ 13e:	8c e0       	ldi	r24, 0x0C	; 12
+ 140:	da df       	rcall	.-76     	; 0xf6 <lcd_command>
+	  lcd_command(0x06);		//Entry mode 06, van links naar rechts schrijven. cursor schuift mee
+ 142:	86 e0       	ldi	r24, 0x06	; 6
+ 144:	d8 df       	rcall	.-80     	; 0xf6 <lcd_command>
+ 146:	f1 cf       	rjmp	.-30     	; 0x12a <display_clear>
+	  display_clear();
+ 148:	08 95       	ret
 
-00000148 <set_cursor>:
- 148:	80 58       	subi	r24, 0x80	; 128
-	  //{
-	  //position -= 15;
-	  //position += 64;
-	  //}
+0000014a <set_cursor>:
+ 14a:	80 58       	subi	r24, 0x80	; 128
+ 14c:	d4 cf       	rjmp	.-88     	; 0xf6 <lcd_command>
+  }
+
+  void set_cursor(int position)
+  {
 	  position += 128;
 	  lcd_command(position);
- 14a:	d5 cf       	rjmp	.-86     	; 0xf6 <lcd_command>
- 14c:	08 95       	ret
+ 14e:	08 95       	ret
 
-0000014e <main>:
+00000150 <main>:
 #include "Lcd.h"
 
 
  int main(void)
  {
 	 init_Lcd_4_bit_mode();
- 14e:	f0 df       	rcall	.-32     	; 0x130 <init_Lcd_4_bit_mode>
-	 display_text("Are you a yedi?");
- 150:	80 e0       	ldi	r24, 0x00	; 0
- 152:	91 e0       	ldi	r25, 0x01	; 1
- 154:	dc df       	rcall	.-72     	; 0x10e <display_text>
+ 150:	ef df       	rcall	.-34     	; 0x130 <init_Lcd_4_bit_mode>
+	 display_text("I ain't no yedi!");
+ 152:	80 e0       	ldi	r24, 0x00	; 0
+ 154:	91 e0       	ldi	r25, 0x01	; 1
+ 156:	db df       	rcall	.-74     	; 0x10e <display_text>
 	 set_cursor(15);
- 156:	8f e0       	ldi	r24, 0x0F	; 15
- 158:	90 e0       	ldi	r25, 0x00	; 0
- 15a:	f6 df       	rcall	.-20     	; 0x148 <set_cursor>
- 15c:	ff cf       	rjmp	.-2      	; 0x15c <main+0xe>
+ 158:	8f e0       	ldi	r24, 0x0F	; 15
+ 15a:	90 e0       	ldi	r25, 0x00	; 0
+ 15c:	f6 df       	rcall	.-20     	; 0x14a <set_cursor>
+ 15e:	ff cf       	rjmp	.-2      	; 0x15e <main+0xe>
 
-0000015e <_exit>:
- 15e:	f8 94       	cli
+00000160 <_exit>:
+ 160:	f8 94       	cli
 
-00000160 <__stop_program>:
- 160:	ff cf       	rjmp	.-2      	; 0x160 <__stop_program>
+00000162 <__stop_program>:
+ 162:	ff cf       	rjmp	.-2      	; 0x162 <__stop_program>
