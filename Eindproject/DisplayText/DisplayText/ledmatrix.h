@@ -4,8 +4,8 @@
 /*
  * ledmatrix.h
  *
- * Created: 7-4-2016 12:21:39
- *  Author: remco
+ * Created: 22-3-2018 12:21:39
+ *  Author: Thijs Wijnen & Zwen van Erkelens
  */ 
 
 

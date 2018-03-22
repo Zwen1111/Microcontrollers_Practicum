@@ -4,8 +4,6 @@
 
 board.c
 
-lcd.c
-
 ledmatrix.c
 
 main.c

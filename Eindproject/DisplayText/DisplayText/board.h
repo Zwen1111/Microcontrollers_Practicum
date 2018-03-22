@@ -4,8 +4,8 @@
 /*
  * board.h
  *
- * Created: 7-4-2016 12:25:41
- *  Author: remco
+ * Created: 22-3-2018 12:25:41
+ *  Author: Thijs Wijnen & Zwen van Erkelens
  */ 
  
  #define Led_On 1
@@ -14,8 +14,7 @@
  void initBoard(void);
  void clearBoard(void);
  void upOffset(void);
- void setLed(int,int,int);
- void write_board_data(void);
- void show_A(void);
- void show_sadSmiley(void);
+ void write_board_data_w(void);
+ void write_board_data(int*);
+ void show_text();
  #endif

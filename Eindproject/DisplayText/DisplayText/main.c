@@ -2,7 +2,7 @@
  * DisplayText.c
  *
  * Created: 22-3-2018 12:28:11
- * Author : zwen1
+ * Author : Thijs Wijnen & Zwen van Erkelens
  */ 
 
 #define F_CPU 8000000
@@ -19,7 +19,7 @@ outputs:
 notes:			Busy wait, not very accurate. Make sure (external)
 				clock value is set. This is used by _delay_ms inside
 				util/delay.h
-Version :    	DMK, Initial code
+Version :    	Initial code
 *******************************************************************/
 {
 	for (int i=0; i<ms; i++)
@@ -33,21 +33,21 @@ int main(void)
 	initMatrix();
 	wait(500);
 	
+	char string = "ab";
+	
     /* Replace with your application code */
     while (1) 
     {
-		clearBoard();
-		show_A();
-		write_board_data();
+		//clearBoard();
+		show_text();
 		upOffset();
-		wait(1000);
+		wait(100);
     }
 }
 
 void initMatrix(){
 	twi_init();
 	initBoard();
-	init_Lcd_4_bit_mode();
 	
 	DDRA = 0b11111111;
 
