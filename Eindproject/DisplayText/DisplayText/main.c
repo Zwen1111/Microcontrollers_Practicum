@@ -33,12 +33,9 @@ int main(void)
 	initMatrix();
 	wait(500);
 	
-	char string = "ab";
-	
     /* Replace with your application code */
     while (1) 
     {
-		//clearBoard();
 		show_text();
 		upOffset();
 		wait(100);

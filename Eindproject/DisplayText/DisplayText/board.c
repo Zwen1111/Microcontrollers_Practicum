@@ -102,85 +102,85 @@ void upOffset(){
 		 
 		 switch(character){
 			 case 'a':
-			 memcpy(text + (i * 8), letterA, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterA, 8 * sizeof(int));
+				 break;
 			 case 'b':
-			 memcpy(text + (i * 8), letterB, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterB, 8 * sizeof(int));
+				 break;
 			 case 'c':
-			 memcpy(text + (i * 8), letterC, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterC, 8 * sizeof(int));
+				 break;
 			 case 'd':
-			 memcpy(text + (i * 8), letterD, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterD, 8 * sizeof(int));
+				 break;
 			 case 'e':
-			 memcpy(text + (i * 8), letterE, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterE, 8 * sizeof(int));
+				 break;
 			 case 'f':
-			 memcpy(text + (i * 8), letterF, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterF, 8 * sizeof(int));
+				 break;
 			 case 'g':
-			 memcpy(text + (i * 8), letterG, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterG, 8 * sizeof(int));
+				 break;
 			 case 'h':
-			 memcpy(text + (i * 8), letterH, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterH, 8 * sizeof(int));
+				 break;
 			 case 'i':
-			 memcpy(text + (i * 8), letterI, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterI, 8 * sizeof(int));
+				 break;
 			 case 'j':
-			 memcpy(text + (i * 8), letterJ, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterJ, 8 * sizeof(int));
+				 break;
 			 case 'k':
-			 memcpy(text + (i * 8), letterK, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterK, 8 * sizeof(int));
+				 break;
 			 case 'l':
-			 memcpy(text + (i * 8), letterL, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterL, 8 * sizeof(int));
+				 break;
 			 case 'm':
-			 memcpy(text + (i * 8), letterM, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterM, 8 * sizeof(int));
+				 break;
 			 case 'n':
-			 memcpy(text + (i * 8), letterN, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterN, 8 * sizeof(int));
+				 break;
 			 case 'o':
-			 memcpy(text + (i * 8), letterO, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterO, 8 * sizeof(int));
+				 break;
 			 case 'p':
-			 memcpy(text + (i * 8), letterP, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterP, 8 * sizeof(int));
+				 break;
 			 case 'q':
-			 memcpy(text + (i * 8), letterQ, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterQ, 8 * sizeof(int));
+				 break;
 			 case 'r':
-			 memcpy(text + (i * 8), letterR, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterR, 8 * sizeof(int));
+				 break;
 			 case 's':
-			 memcpy(text + (i * 8), letterS, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterS, 8 * sizeof(int));
+				 break;
 			 case 't':
-			 memcpy(text + (i * 8), letterT, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterT, 8 * sizeof(int));
+				 break;
 			 case 'u':
-			 memcpy(text + (i * 8), letterU, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterU, 8 * sizeof(int));
+				 break;
 			 case 'v':
-			 memcpy(text + (i * 8), letterV, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterV, 8 * sizeof(int));
+				 break;
 			 case 'w':
-			 memcpy(text + (i * 8), letterW, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterW, 8 * sizeof(int));
+				 break;
 			 case 'x':
-			 memcpy(text + (i * 8), letterX, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterX, 8 * sizeof(int));
+				 break;
 			 case 'y':
-			 memcpy(text + (i * 8), letterY, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterY, 8 * sizeof(int));
+				 break;
 			 case 'z':
-			 memcpy(text + (i * 8), letterZ, 8 * sizeof(int));
-			 break;
+				 memcpy(text + (i * 8), letterZ, 8 * sizeof(int));
+				 break;
 			 case ' ':
-			 break;
+				 break;
 		 }
 	 }
 	 
