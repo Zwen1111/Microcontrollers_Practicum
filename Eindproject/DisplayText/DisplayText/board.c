@@ -15,24 +15,40 @@ void write_board_data_w(void);
 void write_board_data(int*);
 void upOffset(void);
 
-int board[8];
 int offset = 0;
 int counter = 0;
 
-void upOffset(){
+/*
+	upOffset()
+
+	By changing the 'offset' variable the display will scroll
+*/
+void upOffset(void){
 	offset++;
 	if(offset > counter){
 		offset = 0;
 	}
 }
 
+/*
+	initBoard()
+
+	Calls the function 'clearBoard()' for clearing the board. This function will usually be called at start-up
+*/
  void initBoard(void)
  {
 	clearBoard();
  }
 
+ /*
+	clearBoard()
+
+	This will clean the board
+ */
  void clearBoard(void)
  {
+	int board[8];
+
 	for(int row = 0; row < 8; row++)
 	{
 		for(int column = 0; column < 8; column++)
@@ -40,9 +56,14 @@ void upOffset(){
 			board[row] = 0;
 		}
 	}
-	write_board_data_w();
+	write_board_data(board);
  }
 
+ /*
+	write_board_data(int* text)
+
+	From the given array it writes data to the display
+ */
  void write_board_data(int* text)
  {
 	 char columnValue = 0;
@@ -50,24 +71,18 @@ void upOffset(){
 	 for(int row = 0; row < 8; row++)
 	 {
 		 columnValue = text[value + offset];
-		 write_data(getRowAdress(row),columnValue);
-		 value--;
-	 }
- }
-
- void write_board_data_w()
- {
-	 char columnValue = 0;
-	 int value = 8;
-	 for(int row = 0; row < 8; row++)
-	 {
-		 columnValue = board[value + offset];
-		 write_data(getRowAdress(row),columnValue);
+		 write_data(getRowAddress(row),columnValue);
 		 value--;
 	 }
  }
  
- void show_text(){
+ /*
+	show_text()
+
+	For every character of the hardcoded character array it translates them into a int array that represents the character.
+	It fills another int array with the arrays and from that it will write it on the display
+ */
+ void show_text(void){
 
 	 int* text = malloc((38 * 8) * sizeof(int));
 	 

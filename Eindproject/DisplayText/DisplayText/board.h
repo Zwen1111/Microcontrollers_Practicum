@@ -14,7 +14,6 @@
  void initBoard(void);
  void clearBoard(void);
  void upOffset(void);
- void write_board_data_w(void);
  void write_board_data(int*);
- void show_text();
+ void show_text(void);
  #endif

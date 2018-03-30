@@ -30,21 +30,12 @@ Version :    	Initial code
 	}
 }
 
-int main(void)
-{
-	initMatrix();
-	wait(500);
-	
-    /* Replace with your application code */
-    while (1) 
-    {
-	    show_text();
-		upOffset();
-		wait(100);
-    }
-}
+/*
+	initMatrix()
 
-void initMatrix(){
+	This will initialize the matrix for writing text on the matrix display
+*/
+void initMatrix(void){
 	twi_init();
 	initBoard();
 	
@@ -54,5 +45,23 @@ void initMatrix(){
 	EIMSK |= 0b10000000; //enable INT&
 	//enable global interrupt system
 	sei();
+}
+
+/*
+	main()
+
+	Method that will be called on start-up. With a forever loop that will show the text and scrolls it
+*/
+int main(void)
+{
+	initMatrix();
+	wait(500);
+	
+	while (1)
+	{
+		show_text();
+		upOffset();
+		wait(80);
+	}
 }
 
