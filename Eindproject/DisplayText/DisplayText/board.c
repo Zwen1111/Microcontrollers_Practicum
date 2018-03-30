@@ -5,10 +5,11 @@
  *  Author: Thijs Wijnen & Zwen van Erkelens
  */ 
 
- #include "ledmatrix.h"
- #include "board.h"
+ #include <ctype.h>
  #include <string.h>
  #include <stdlib.h>
+ #include "ledmatrix.h"
+ #include "board.h"
 
 void write_board_data_w(void);
 void write_board_data(int*);
@@ -108,10 +109,10 @@ void upOffset(){
 	 memcpy(text + 8, emptySpace, 8 * sizeof(int));
 	 counter = 8;
 
-	 char string[22] = "nerds are the new cool";
+	 char string[22] = "Nerds are the new cool";
 	 
 	 for(int i = 0; i < 22; i++){
-		 char character = string[i];
+		 char character = tolower(string[i]);
 		 
 		 switch(character){
 			 case 'a':
