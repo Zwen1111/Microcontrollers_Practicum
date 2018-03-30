@@ -10,6 +10,8 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include "board.h"
+#include "ledmatrix.h"
 
 void wait( int ms )
 /* 
@@ -36,7 +38,7 @@ int main(void)
     /* Replace with your application code */
     while (1) 
     {
-		show_text();
+	    show_text();
 		upOffset();
 		wait(100);
     }
